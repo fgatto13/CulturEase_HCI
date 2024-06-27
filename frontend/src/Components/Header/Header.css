@@ -1,0 +1,29 @@
+.head{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+    nav{
+        display: flex;
+    }
+    ul{
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        text-align: center;
+        padding: 20px;
+    }
+    li{
+        margin: 20px;
+        color: white;
+    }
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+}
+.App-logo{
+    max-height: 80px;
+    width: auto;
+}
