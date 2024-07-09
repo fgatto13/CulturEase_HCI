@@ -1,29 +1,39 @@
-.head{
-    padding: 10px;
+header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: #fff;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
     nav{
         display: flex;
     }
     ul{
         display: flex;
         list-style: none;
+        align-items: center;
         justify-content: space-between;
         text-align: center;
-        padding: 20px;
     }
     li{
-        margin: 20px;
-        color: white;
+        margin-inline: 20px;
+        color: #2a6364;
     }
     a{
         text-decoration: none;
-        color: #000;
+        color: #2a6364;
     }
 }
-.App-logo{
-    max-height: 80px;
+.headerImg{
+    height: 40px;
     width: auto;
+}
+.headerLogo{
+    height: 60px;
+    width: auto;
+}
+
+.logoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

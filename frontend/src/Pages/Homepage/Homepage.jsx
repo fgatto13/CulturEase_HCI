@@ -1,15 +1,21 @@
 import React from "react";
-import { Header, Footer } from "../../Components";
+import { Header, Footer, Button } from "../../Components";
 import '../../Styles/styles.css';
 import './Homepage.css';
 
 function Homepage(){
     return(
-        <body>
+        <>
             <Header />
-            <main></main>
+            <main>
+                <div className="welcomeBox">
+                    <h1>Benvenuti</h1>
+                    <p>Questo è il sito ufficiale del centro accoglienza di Cervinara (AV)</p>
+                    <Button />
+                </div>
+            </main>
             <Footer />
-        </body>
+        </>
     );
 }
 
