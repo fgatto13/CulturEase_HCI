@@ -1,4 +1,3 @@
-<link href="mdstyle.css" rel="stylesheet"></link>
 ### CulturEase HCI
 ![Logo](Docs/Primo_Assignment/CulturEaseLogo.PNG)
 **CulturEase** is a web based app, but more in general a project, to support the refugees and migrants reception center in Cervinara(AV).
