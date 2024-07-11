@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./LoginPopup.css";
 import CloseButton from './close-circle.png';
-import UserIcon from './user.png';
+import UserIcon from './user.svg';
 import Button from "../InteractiveComponents";
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "text" }) => {
