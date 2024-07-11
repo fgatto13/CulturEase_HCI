@@ -8,9 +8,24 @@
 body{
     height: 80svh;
     width: 100%;
+    background-color: #2a6364;
 }
 
 header{
     min-width: 100%;
     height: 80px;
+}
+
+main{
+    min-width: 100%;
+    min-height: 80vh;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #2a6364;
 }

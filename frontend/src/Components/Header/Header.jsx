@@ -3,6 +3,7 @@ import './Header.css';
 import logo1 from '../../Media/Logo.png';
 import logo2 from '../../Media/LogoHeader2.png';
 import User from '../../Media/user 2.png';
+import { Link } from 'react-router-dom';
 
 function Header(){
     return(
@@ -13,13 +14,13 @@ function Header(){
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Bacheca</a></li>
+                    <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/bacheca"}>Bacheca</Link></li>
                     <li><a href="#">Servizi</a></li>
                     <li>
-                        <a href="#">
+                        <Link to={"/login"}>
                             <img src={User} alt="userLogin" className='headerImg'/>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>

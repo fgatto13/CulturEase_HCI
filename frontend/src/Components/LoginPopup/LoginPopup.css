@@ -1,0 +1,107 @@
+:root {
+    --shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    --collection-1-color: rgba(42, 99, 100, 1);
+    --small-text-font-family: "Inter", Helvetica;
+    --small-text-font-size: 14px;
+    --small-text-font-style: normal;
+    --small-text-font-weight: 500;
+    --small-text-letter-spacing: 0px;
+    --small-text-line-height: 150%;
+}
+.login-popup {
+    background-color: #ffffff;
+    padding: 2.5%;
+    border-radius: 25px;
+    min-width: 400px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;align-items: center;
+    justify-content: space-evenly;
+    box-shadow: var(--shadow);
+    * {
+        margin-block: 5px;
+    }
+}
+.login-popup .text-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .line {
+        height: 3px;
+        background-color: #e0e0e0;
+        width: 90%;
+    }
+}
+.login-popup .imgWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    img{
+        height: 50px;
+        width: auto;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+    img:hover{
+        transform: translateY(-5px);
+    }
+}
+  
+.login-popup .user {
+    width: 30%;
+    height: auto;
+}
+  
+.login-popup .label {
+    align-self: stretch;
+    color: #2a6364;
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    line-height: var(--small-text-line-height);
+}
+  
+.login-popup .field {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #e0e0e0;
+    border-radius: 8px;
+    color: #828282;
+    padding: 5px;
+    width: 80%;
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    line-height: var(--small-text-line-height);
+}
+  
+.login-popup .password-dimenticata, 
+.login-popup .registrati{
+    color: transparent;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+}
+  
+.login-popup span {
+    color: #959595;
+    font-family: var(--small-text-font-family);
+    font-size: var(--small-text-font-size);
+    font-style: var(--small-text-font-style);
+    font-weight: var(--small-text-font-weight);
+    letter-spacing: var(--small-text-letter-spacing);
+    line-height: var(--small-text-line-height);
+}
+
+.aLink{
+    font-size: var(--small-text-font-size);
+    color: #2a6364;
+}
