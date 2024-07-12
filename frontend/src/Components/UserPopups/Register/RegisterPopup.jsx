@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "../styles/LoginPopup.css";
 import CloseButton from '../media/close-circle.png';
-import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
 
 export const RegisterPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
+    // eslint-disable-next-line
     const [password, setPassword] = useState('');
 
     const handleEmailChange = (event) => {
@@ -34,45 +34,39 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
             <div className="formContainer">
                 <div className="Form">
                     <label className="label" htmlFor="input-1">
-                        Email
+                        Nome
                     </label>
                     <input 
-                        className="field" 
-                        id="input-1" 
-                        placeholder="mariorossi@example.com" 
-                        type={inputType}
-                        onChange={handleEmailChange}
+                        className="field"
+                        placeholder="Mario" 
+                        type='text'
                     />
                     <label className="label" htmlFor="input-1">
-                        Conferma Email
+                        Cognome
                     </label>
                     <input 
-                        className="field" 
-                        id="input-1" 
-                        placeholder="mariorossi@example.com" 
-                        type={inputType}
-                        onChange={handleEmailChange}
+                        className="field"
+                        placeholder="Rossi" 
+                        type='text'
                     />
                     <label className="label" htmlFor="input-2">
-                        Password
+                        Data di nascita
                     </label>
                     <input 
-                        className="field" 
-                        id="input-2" 
-                        placeholder="•••••••" 
-                        type={inputType1} 
-                        onChange={handlePasswordChange}
+                        className="field"
+                        placeholder="01/01/2000" 
+                        type='date'
                     />
                     <label className="label" htmlFor="input-2">
-                        Conferma Password
+                        Sesso
                     </label>
-                    <input 
-                        className="field" 
-                        id="input-2" 
-                        placeholder="•••••••" 
-                        type={inputType1} 
-                        onChange={handlePasswordChange}
-                    />
+                    <select 
+                        className="field"
+                    >
+                        <option value="0">Maschio</option>
+                        <option value="1">Femmina</option>
+                        <option value="2">Non specificato</option>
+                    </select>
                 </div>
                 <div className="Form">
                     <label className="label" htmlFor="input-1">
@@ -92,7 +86,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         className="field" 
                         id="input-1" 
                         placeholder="mariorossi@example.com" 
-                        type={inputType}
+                        type="email"
                         onChange={handleEmailChange}
                     />
                     <label className="label" htmlFor="input-2">
@@ -120,7 +114,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
             <Button text={"Registrati"} funct={register} />
             <p className="registrati">
                 <span className="span">Hai già un account? </span>
-                <a className="aLink" href="#" onClick={toggleForm}>Accedi qui</a>
+                <span className="aLink"onClick={toggleForm}>Accedi qui</span>
             </p>
         </div>
     );

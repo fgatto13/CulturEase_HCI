@@ -7,8 +7,14 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
+    min-width: 80%;
 }
 
 .genericButton:hover{
     background-color: crimson;
 }
+
+.genericButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }

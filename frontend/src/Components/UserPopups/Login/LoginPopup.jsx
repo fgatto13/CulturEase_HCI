@@ -59,12 +59,12 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
             />
             <p className="password-dimenticata">
                 <span className="span">Password dimenticata? </span>
-                <a className="aLink" href="#">Clicca qui</a>
+                <span className="aLink">Clicca qui</span>
             </p>
             <Button text={"Accedi"} funct={login} />
             <p className="registrati">
                 <span className="span">Non sei registrato? </span>
-                <a className="aLink" href="#" onClick={toggleForm}>Clicca qui</a>
+                <span className="aLink" onClick={toggleForm}>Clicca qui</span>
             </p>
         </div>
     );
