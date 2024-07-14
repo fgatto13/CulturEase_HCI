@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useContext } from "react";
 import Button from "../../InteractiveComponents";
 import './GridLayout.css';
-import CheckPopUps from "../../UserPopups/CheckPopUps/CheckPopUps";
-import FinalPopUps from "../../UserPopups/FinalPopUps/FinalPopUps";
-import { PopUpContext } from "../../UserPopups/PopUpContext";
+
+import { useContext } from "react";   //test pop-up
+import CheckPopUps from "../../UserPopups/CheckPopUps/CheckPopUps";   //test pop-up
+import FinalPopUps from "../../UserPopups/FinalPopUps/FinalPopUps";   //test pop-up
+import { PopUpContext } from "../../UserPopups/PopUpContext";   //test pop-up
 
 const GridLayout = ({ elements }) => {
   const [startIndex, setStartIndex] = useState(0);
@@ -41,7 +42,8 @@ const GridLayout = ({ elements }) => {
         <Button text="Next" funct={handleNext} dis={startIndex + elementsPerPage >= elements.length} />  */}
 
       {/* test pop-up */}
-      <button onClick={() => handleOpenPopUp('This is a new pop-up message!')}>Show PopUp</button>
+      <Button text="Show Pop-up" 
+              funct={() => handleOpenPopUp('This is a new pop-up message!')}></Button>
       {showPopUp && <CheckPopUps />}
       {showFinalPopUp && <FinalPopUps />}
 
