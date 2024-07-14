@@ -1,10 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import { useContext } from "react";
 import Button from "../../InteractiveComponents";
 import './GridLayout.css';
+import CheckPopUps from "../../UserPopups/CheckPopUps/CheckPopUps";
+import FinalPopUps from "../../UserPopups/FinalPopUps/FinalPopUps";
+import { PopUpContext } from "../../UserPopups/PopUpContext";
 
 const GridLayout = ({ elements }) => {
   const [startIndex, setStartIndex] = useState(0);
+
+  //test pop-up
+  const { showPopUp, showFinalPopUp, handleOpenPopUp} = useContext(PopUpContext);
+
   const elementsPerPage = 6;
 
   const handleNext = () => {
@@ -29,8 +37,14 @@ const GridLayout = ({ elements }) => {
         ))}
       </div>
       <div className="navigation-buttons">
-        <Button text="Previous" funct={handlePrevious} dis={startIndex === 0} />
-        <Button text="Next" funct={handleNext} dis={startIndex + elementsPerPage >= elements.length} />
+      {/*  <Button text="Previous" funct={handlePrevious} dis={startIndex === 0} />
+        <Button text="Next" funct={handleNext} dis={startIndex + elementsPerPage >= elements.length} />  */}
+
+      {/* test pop-up */}
+      <button onClick={() => handleOpenPopUp('This is a new pop-up message!')}>Show PopUp</button>
+      {showPopUp && <CheckPopUps />}
+      {showFinalPopUp && <FinalPopUps />}
+
       </div>
     </div>
   );
