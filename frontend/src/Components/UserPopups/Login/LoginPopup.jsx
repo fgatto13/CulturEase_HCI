@@ -4,10 +4,12 @@ import "../styles/LoginPopup.css";
 import CloseButton from '../media/close-circle.png';
 import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
+import { validateCredentials } from "../../utils/validationUtils";
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -18,14 +20,19 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
     }
 
     const login = () => {
-        if(email.length===0 || password.length===0){
-            alert(`All fields must be compiled`);
-        }else{
-            sessionStorage.setItem('isLoggedIn', 'true');
-            sessionStorage.setItem('User', email);
-            alert(`Logged in as: ${email}`);
+
+        const { isValid, message } = validateCredentials(email, password);
+        
+        if (isValid) {
+          sessionStorage.setItem('isLoggedIn', 'true');
+          sessionStorage.setItem('User', email);
+          alert(`Logged in as: ${email}`);
+          setError('');
+        } else {
+          setError(message);
         }
-    }
+
+      };
 
     return (
         <div className="login-popup">
@@ -61,7 +68,10 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
                 <span className="span">Password dimenticata? </span>
                 <span className="aLink">Clicca qui</span>
             </p>
+
             <Button text={"Accedi"} funct={login} />
+            {error && <div className="error-message">{error}</div>}
+
             <p className="registrati">
                 <span className="span">Non sei registrato? </span>
                 <span className="aLink" onClick={toggleForm}>Clicca qui</span>

@@ -35,7 +35,7 @@ const GridLayout = ({ elements }) => {
   const handlePage = (shift) => {
     setPage((prevPage) => {
       const newPage = prevPage + shift;
-      // Assicurati che la nuova pagina sia all'interno dei limiti validi
+     
       if (newPage < 0 || newPage >= Math.ceil(numberOfElements / elementsPerPage)) {
         return prevPage;
       }

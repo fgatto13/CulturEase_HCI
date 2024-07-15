@@ -3,24 +3,32 @@ import React, { useState } from "react";
 import "../styles/LoginPopup.css";
 import CloseButton from '../media/close-circle.png';
 import Button from "../../InteractiveComponents";
+import { validateRegistration } from "../../utils/validationUtils";
 
 export const RegisterPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [birthDate, setBirthDate] = useState('');
     const [email, setEmail] = useState('');
-    // eslint-disable-next-line
+    const [confirmemail, setConfirmEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    }
-
-    const register = () => {
-        // Implement registration logic here
-        alert(`Registered as: ${email}`);
-    }
+    const handleRegister = () => {
+   
+        const { isValid, message } = validateRegistration
+            (firstName, lastName, birthDate, email, password, confirmPassword);
+    
+        if (isValid) {
+          sessionStorage.setItem('isLoggedIn', 'true');
+          sessionStorage.setItem('User', email);
+          alert(`Registered as: ${email}`);
+          setError('');
+        } else {
+          setError(message);
+        }
+      };
 
     return (
         <div className="login-popup" style={{width: '50%'}}>
@@ -39,6 +47,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                     <input 
                         className="field"
                         placeholder="Mario" 
+                        onChange={(e) => setFirstName(e.target.value)}
                         type='text'
                     />
                     <label className="label" htmlFor="input-1">
@@ -47,6 +56,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                     <input 
                         className="field"
                         placeholder="Rossi" 
+                        onChange={(e) => setLastName(e.target.value)}
                         type='text'
                     />
                     <label className="label" htmlFor="input-2">
@@ -54,7 +64,8 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                     </label>
                     <input 
                         className="field"
-                        placeholder="01/01/2000" 
+                        placeholder="01/01/2000"
+                        onChange={(e) => setBirthDate(e.target.value)} 
                         type='date'
                     />
                     <label className="label" htmlFor="input-2">
@@ -77,7 +88,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         id="input-1" 
                         placeholder="mariorossi@example.com" 
                         type={inputType}
-                        onChange={handleEmailChange}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <label className="label" htmlFor="input-1">
                         Conferma Email
@@ -87,7 +98,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         id="input-1" 
                         placeholder="mariorossi@example.com" 
                         type="email"
-                        onChange={handleEmailChange}
+                        onChange={(e) => setConfirmEmail(e.target.value)}
                     />
                     <label className="label" htmlFor="input-2">
                         Password
@@ -97,7 +108,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         id="input-2" 
                         placeholder="•••••••" 
                         type={inputType1} 
-                        onChange={handlePasswordChange}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <label className="label" htmlFor="input-2">
                         Conferma Password
@@ -107,11 +118,14 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         id="input-2" 
                         placeholder="•••••••" 
                         type={inputType1} 
-                        onChange={handlePasswordChange}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
             </div>
-            <Button text={"Registrati"} funct={register} />
+
+            <Button text={"Registrati"} funct={handleRegister} />
+            {error && <pre className="error-message">{error}</pre>}
+
             <p className="registrati">
                 <span className="span">Hai già un account? </span>
                 <span className="aLink"onClick={toggleForm}>Accedi qui</span>

@@ -124,6 +124,16 @@
     width: 100%;
 }
 
+.error-message {
+    color: #DA3535; 
+    font-weight: bold; 
+    white-space: pre-line; 
+    margin-top: 10px; 
+    list-style-type: disc; 
+    padding-left: 20px; 
+    text-align: left; 
+}
+
 select {
     appearance: none;
     background-color: transparent;
