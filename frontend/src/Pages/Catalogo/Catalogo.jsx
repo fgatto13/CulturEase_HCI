@@ -10,7 +10,7 @@ export default function Catalogo(){
     <>
     <Header />
     <main className="catalogueMain">
-       <GridLayout elements={elementsConfig}/>
+      { <GridLayout elements={elementsConfig}/>  }
     </main>
     <Footer />
     </>

@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination-button {
+    display: flex;
+    color: #2a6364;
+    width: 50px;
+    height: 50px;
+    padding: 5px 4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #DFE3E8;
+    background: #FFF;
+    color: var(--Dark-Grey-400, #212B36);
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 100% */
+  }
+  
+  .pagination-button:hover{
+    background-color: #2a6364;
+    color: var(--Dark-Grey-400, #f8f8f8);
+  }
+
+  .selected-button{
+    background-color: #2a6364;
+    color: var(--Dark-Grey-400, #f8f8f8);
+  }
+  
+
+  
