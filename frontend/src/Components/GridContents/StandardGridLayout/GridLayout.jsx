@@ -1,25 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import Button from "../../InteractiveComponents";
+import React, { useState, useEffect } from "react";
 import './GridLayout.css';
-
-import CheckPopUps from "../../UserPopups/CheckPopUps/CheckPopUps";
-import FinalPopUps from "../../UserPopups/FinalPopUps/FinalPopUps";
-import { PopUpContext } from "../../UserPopups/PopUpContext";
 import Pagination from "../../Pagination/Pagination";
 import SearchBar from "../../SearchBar/SearchBar";
 
-const GridLayout = ({ elements }) => {
-  //test pop-up
-  const { showPopUp, showFinalPopUp, handleOpenPopUp } = useContext(PopUpContext);
+const GridLayout = ({ elements, ItemComponent }) => {
 
   const elementsPerPage = 6;
   const [startIndex, setStartIndex] = useState(0);
   const [page, setPage] = useState(0);
   const [currentElements, setCurrentElements] = useState([]);
   const [filteredElements, setFilteredElements] = useState(elements);
+  const [selectedElement, setSelectedElement] = useState(null);
 
   useEffect(() => {
-    // Quando cambia la pagina o gli elementi filtrati, aggiorna currentElements
     const newStartIndex = page * elementsPerPage;
     setStartIndex(newStartIndex);
     setCurrentElements(filteredElements.slice(newStartIndex, newStartIndex + elementsPerPage));
@@ -35,7 +28,6 @@ const GridLayout = ({ elements }) => {
   const handlePage = (shift) => {
     setPage((prevPage) => {
       const newPage = prevPage + shift;
-     
       if (newPage < 0 || newPage >= Math.ceil(numberOfElements / elementsPerPage)) {
         return prevPage;
       }
@@ -44,12 +36,19 @@ const GridLayout = ({ elements }) => {
   };
 
   const handleSearch = (title) => {
-    // Filtra gli elementi in base al titolo della ricerca
     const filtered = elements.filter(element =>
       element.title.toLowerCase().includes(title.toLowerCase())
     );
     setFilteredElements(filtered);
-    setPage(0); // Resetta alla prima pagina
+    setPage(0);
+  };
+
+  const handleElementClick = (element) => {
+    setSelectedElement(element);
+  };
+
+  const handleCloseProductDetails = () => {
+    setSelectedElement(null);
   };
 
   return (
@@ -58,10 +57,14 @@ const GridLayout = ({ elements }) => {
 
       <div className="gridContainer">
         {currentElements.map((element, index) => (
-          <div key={startIndex + index} className="elementBox">
+          <div
+            key={startIndex + index}
+            className="elementBox"
+            onClick={() => handleElementClick(element)}
+          >
             <img src={element.image} alt={element.title} className="element-image" />
             <h1 className="element-title">{element.title}</h1>
-            <p className="element-description">{element.description}</p>
+            <p className="element-description">{element.descrizione}</p>
           </div>
         ))}
       </div>
@@ -73,10 +76,9 @@ const GridLayout = ({ elements }) => {
         currentPage={page}
       />
 
-      {/* test pop-up */}
-      <Button text="Show Pop-up" funct={() => handleOpenPopUp('This is a new pop-up message!')} />
-      {showPopUp && <CheckPopUps />}
-      {showFinalPopUp && <FinalPopUps />}
+      {selectedElement && (
+        <ItemComponent element={selectedElement} onClose={handleCloseProductDetails} />
+      )}
     </div>
   );
 };

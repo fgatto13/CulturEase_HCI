@@ -20,19 +20,28 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
     }
 
     const login = () => {
-
         const { isValid, message } = validateCredentials(email, password);
-        
+      
         if (isValid) {
           sessionStorage.setItem('isLoggedIn', 'true');
           sessionStorage.setItem('User', email);
+      
+          // Email dell'amministratore
+          const adminEmail = 'admin@example.com';
+      
+          if (email === adminEmail) {
+            sessionStorage.setItem('isAdmin', 'true');
+          } else {
+            sessionStorage.setItem('isAdmin', 'false');
+          }
+      
           alert(`Logged in as: ${email}`);
           setError('');
         } else {
           setError(message);
         }
-
       };
+      
 
     return (
         <div className="login-popup">

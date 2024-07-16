@@ -18,7 +18,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
     const handleRegister = () => {
    
         const { isValid, message } = validateRegistration
-            (firstName, lastName, birthDate, email, password, confirmPassword);
+            (firstName, lastName, birthDate, email, confirmemail, password, confirmPassword);
     
         if (isValid) {
           sessionStorage.setItem('isLoggedIn', 'true');
@@ -33,7 +33,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
     return (
         <div className="login-popup" style={{width: '50%'}}>
             <div className="imgWrapper">
-                <img src={CloseButton} alt="Close Button" />
+                <img src={CloseButton} alt="Close Button"/>
             </div>
             <div className="text-wrapper">
                 <h1>Registrati</h1>

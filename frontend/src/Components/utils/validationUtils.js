@@ -79,18 +79,33 @@ export const validateProperName = (name) => {
     }
   };
 
+
+  /**
+ * Verifica se una descrizione è valida.
+ * @param {string} description - Il nome da validare.
+ * @returns {Object} - Restituisce un oggetto con un booleano `isValid` e un messaggio di errore, se presente.
+ */
+export const validateDescription = (description) => {
+  const nameRegex = /^[A-Z][a-zA-Z0-9\s]*$/;  // Solo lettere, numeri e spazi
+  if (nameRegex.test(description)) {
+    return { isValid: true, message: '' };
+  } else {
+    return { isValid: false, message: 'Il testo può contenere solo lettere, numeri e spazi e deve inizare con lettera maiuscola'};
+  }
+};
+
 /**
  * Verifica se una data non è futura.
  * @param {string} date - La data da validare.
  * @returns {Object} - Restituisce un oggetto con un booleano `isValid` e un messaggio di errore, se presente.
  */
 export const validateDateNotInFuture = (date) => {
-    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+
     const inputDate = new Date(date);
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Imposta le ore, minuti, secondi e millisecondi a 0 per confrontare solo la data
     
-    if (dateRegex.test(date) && inputDate <= today) {
+    if (inputDate <= today) {
       return { isValid: true, message: '' };
     } else {
       return { isValid: false, message: 'La data deve essere nel formato YYYY-MM-DD e non può essere futura.' };
@@ -167,3 +182,28 @@ export const validateRegistration = (firstName, lastName, birthDate, email, conf
     return { isValid, message: errorMessage };
   };
   
+  /**
+ * Verifica i dati del modulo di aggiunta del prodotto.
+ * @param {string} name - Il nome del prodotto.
+ * @param {string} description - La descrizione del prodotto.
+ * @param {string} size - La taglia del prodotto.
+ * @returns {Object} - Restituisce un oggetto con un booleano `isValid` e un messaggio di errore, se presente.
+ */
+export const validateAddProductForm = (name, description) => {
+  const nameValidation = validateProperName(name);
+  const descriptionValidation = validateDescription(description)
+
+  let isValid = true;
+  let errorMessage = '';
+
+  if (!nameValidation.isValid) {
+    isValid = false;
+    errorMessage += nameValidation.message + '\n';
+  }
+  if (!descriptionValidation.isValid) {
+    isValid = false;
+    errorMessage += descriptionValidation.message + '\n';
+  }
+
+  return { isValid, message: errorMessage };
+};

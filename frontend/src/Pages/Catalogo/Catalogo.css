@@ -2,3 +2,18 @@
     background-image: url('CatalogueBG.png');
     max-height: 100vh;
 }
+
+/* Aggiungi questo per mostrare il form sopra il contenuto */
+.add-product-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assicurati che il form sia sopra gli altri contenuti */
+  }
+  
