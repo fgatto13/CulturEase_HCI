@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../styles/LoginPopup.css";
 import CloseButton from '../media/close-circle.png';
 import Button from "../../InteractiveComponents";
+import ErrorMessage from "../ErrorMessage";
 import { validateRegistration } from "../../utils/validationUtils";
 
 export const RegisterPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
@@ -14,21 +15,26 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [isErrorVisible, setIsErrorVisible] = useState(false);
 
     const handleRegister = () => {
-   
         const { isValid, message } = validateRegistration
             (firstName, lastName, birthDate, email, confirmemail, password, confirmPassword);
     
         if (isValid) {
-          sessionStorage.setItem('isLoggedIn', 'true');
-          sessionStorage.setItem('User', email);
-          alert(`Registered as: ${email}`);
-          setError('');
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('User', email);
+            alert(`Registered as: ${email}`);
+            setError('');
+            setIsErrorVisible(false);
         } else {
-          setError(message);
+            setError(message);
+            setIsErrorVisible(true);
         }
-      };
+    };
+    const closeErrorMessage = () => {
+        setIsErrorVisible(false);
+    };
 
     return (
         <div className="login-popup" style={{width: '50%'}}>
@@ -124,7 +130,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
             </div>
 
             <Button text={"Registrati"} funct={handleRegister} />
-            {error && <pre className="error-message">{error}</pre>}
+            <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
 
             <p className="registrati">
                 <span className="span">Hai già un account? </span>

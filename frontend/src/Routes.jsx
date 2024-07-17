@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { 
     Homepage, 
     LoginPage,
-    Bacheca,
+    BachecaPage,
     Catalogo 
 } from "./Pages";
 
@@ -15,7 +15,7 @@ function Rts(){
             <Routes>
                 <Route exact path="/" element={<Homepage />}/>
                 <Route path="/login" element={<LoginPage />}/>
-                <Route path="/bacheca" element={<Bacheca />}/>
+                <Route path="/bacheca" element={<BachecaPage />}/>
                 <Route path="/catalogo" element={<Catalogo />}/>
             </Routes>
         </Router>

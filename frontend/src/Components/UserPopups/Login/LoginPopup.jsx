@@ -5,43 +5,50 @@ import CloseButton from '../media/close-circle.png';
 import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
 import { validateCredentials } from "../../utils/validationUtils";
+import ErrorMessage from "../ErrorMessage";
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isErrorVisible, setIsErrorVisible] = useState(false);
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
-    }
+    };
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
-    }
+    };
 
     const login = () => {
         const { isValid, message } = validateCredentials(email, password);
-      
+
         if (isValid) {
-          sessionStorage.setItem('isLoggedIn', 'true');
-          sessionStorage.setItem('User', email);
-      
-          // Email dell'amministratore
-          const adminEmail = 'admin@example.com';
-      
-          if (email === adminEmail) {
-            sessionStorage.setItem('isAdmin', 'true');
-          } else {
-            sessionStorage.setItem('isAdmin', 'false');
-          }
-      
-          alert(`Logged in as: ${email}`);
-          setError('');
+            sessionStorage.setItem('isLoggedIn', 'true');
+            sessionStorage.setItem('User', email);
+
+            // Email dell'amministratore
+            const adminEmail = 'admin@example.com';
+
+            if (email === adminEmail) {
+                sessionStorage.setItem('isAdmin', 'true');
+            } else {
+                sessionStorage.setItem('isAdmin', 'false');
+            }
+
+            alert(`Logged in as: ${email}`);
+            setError('');
+            setIsErrorVisible(false); // Hide error message when login is successful
         } else {
-          setError(message);
+            setError(message);
+            setIsErrorVisible(true); // Show error message when login fails
         }
-      };
-      
+    };
+
+    const closeErrorMessage = () => {
+        setIsErrorVisible(false);
+    };
 
     return (
         <div className="login-popup">
@@ -56,21 +63,21 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
             <label className="label" htmlFor="input-1">
                 Email
             </label>
-            <input 
-                className="field" 
-                id="input-1" 
-                placeholder="mariorossi@example.com" 
+            <input
+                className="field"
+                id="input-1"
+                placeholder="mariorossi@example.com"
                 type={inputType}
                 onChange={handleEmailChange}
             />
             <label className="label" htmlFor="input-2">
                 Password
             </label>
-            <input 
-                className="field" 
-                id="input-2" 
-                placeholder="•••••••" 
-                type={inputType1} 
+            <input
+                className="field"
+                id="input-2"
+                placeholder="•••••••"
+                type={inputType1}
                 onChange={handlePasswordChange}
             />
             <p className="password-dimenticata">
@@ -79,7 +86,8 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
             </p>
 
             <Button text={"Accedi"} funct={login} />
-            {error && <div className="error-message">{error}</div>}
+
+            <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
 
             <p className="registrati">
                 <span className="span">Non sei registrato? </span>

@@ -1,6 +1,6 @@
 .catalogueMain{
     background-image: url('CatalogueBG.png');
-    max-height: 100vh;
+    padding-block: 20px;
 }
 
 /* Aggiungi questo per mostrare il form sopra il contenuto */

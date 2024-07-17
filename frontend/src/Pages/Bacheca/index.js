@@ -1,2 +1,2 @@
-import Bacheca from "./Bacheca";
-export default Bacheca;
+import BachecaPage from "./Bacheca";
+export default BachecaPage;
