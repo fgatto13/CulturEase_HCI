@@ -36,12 +36,21 @@ const GridLayout = ({ elements, ItemComponent }) => {
   };
 
   const handleSearch = (title) => {
-    const filtered = elements.filter(element =>
-      element.title.toLowerCase().includes(title.toLowerCase())
-    );
+    if (!title || typeof title !== 'string') {
+        setFilteredElements(elements);
+        setPage(0);
+        return;
+    }
+
+    const filtered = elements.filter(element => {
+        return element.title && typeof element.title === 'string' &&
+               element.title.toLowerCase().includes(title.toLowerCase());
+    });
+
     setFilteredElements(filtered);
     setPage(0);
-  };
+};
+
 
   const handleElementClick = (element) => {
     setSelectedElement(element);
