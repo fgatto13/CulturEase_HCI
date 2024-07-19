@@ -8,7 +8,7 @@ export const validateEmail = (email) => {
     if (emailRegex.test(email)) {
       return { isValid: true, message: '' };
     } else {
-      return { isValid: false, message: 'Email non valida. ' };
+      return { isValid: false, message: 'Email non valida. <br>' };
     }
   };
   

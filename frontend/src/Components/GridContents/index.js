@@ -1,2 +1,3 @@
 import GridLayout from "./StandardGridLayout";
-export {GridLayout};
+import { GridScroll } from "./GridScroll";
+export {GridLayout, GridScroll};

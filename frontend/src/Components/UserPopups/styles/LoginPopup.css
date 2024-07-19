@@ -1,5 +1,5 @@
 :root {
-    --shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    --shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
     --collection-1-color: rgba(42, 99, 100, 1);
     --small-text-font-family: "Inter", Helvetica;
     --small-text-font-size: 14px;

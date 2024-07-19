@@ -29,3 +29,9 @@ main{
     text-align: center;
     color: #2a6364;
 }
+
+@media only screen and (max-width: 1000px) {
+    body{
+        overflow-x: hidden;
+    }
+}

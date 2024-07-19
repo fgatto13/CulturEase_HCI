@@ -1,0 +1,20 @@
+.menuBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    position: fixed;
+    top: 60px;
+    right: 70px;
+    color: #2a6364;
+    background: #fff;
+    width: 100px;
+    height: 150px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
+    nav ul{
+        padding: 5%;
+        list-style: none;
+    }
+}
