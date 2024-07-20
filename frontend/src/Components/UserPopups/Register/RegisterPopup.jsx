@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "../styles/LoginPopup.css";
-import CloseButton from '../media/close-circle.png';
 import Button from "../../InteractiveComponents";
 import ErrorMessage from "../ErrorMessage";
 import { validateRegistration } from "../../utils/validationUtils";
@@ -47,9 +46,6 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
 
     return (
         <div className="login-popup" style={{ width: '50%' }}>
-            <div className="imgWrapper">
-                <img src={CloseButton} alt="Close Button" />
-            </div>
             <div className="text-wrapper">
                 <h1>Registrati</h1>
                 <div className="line" />

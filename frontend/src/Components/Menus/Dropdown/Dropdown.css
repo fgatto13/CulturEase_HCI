@@ -3,18 +3,40 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: left;
     position: fixed;
-    top: 60px;
-    right: 70px;
+    top: 85px;
+    right: 5%;
     color: #2a6364;
     background: #fff;
-    width: 100px;
-    height: 150px;
+    width: 150px;
+    height: 200px;
     border-radius: 25px;
     box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
     nav ul{
-        padding: 5%;
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        li{ 
+            cursor: pointer; 
+            margin-top: 20px;
+        }
+        li:first-child{
+            margin-top: 0;
+        }
+        li a{
+            text-decoration: none;
+            color: #2a6364;
+            transition: color 0.5s ease-in-out;
+        }
+        li a:hover{
+            color: red;
+        }
     }
+    animation: display 0.5s 1;
+}
+
+@keyframes display {
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

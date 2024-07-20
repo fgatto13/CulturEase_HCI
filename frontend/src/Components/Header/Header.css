@@ -3,7 +3,7 @@ header{
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
-    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #2a6364;
     nav{
         display: flex;
     }
@@ -18,9 +18,13 @@ header{
         margin-inline: 20px;
         color: #2a6364;
     }
-    a{
+    li a{
         text-decoration: none;
         color: #2a6364;
+        transition: color 0.5s ease-in-out;
+    }
+    a:hover{
+        color: red;
     }
 }
 .headerImg{

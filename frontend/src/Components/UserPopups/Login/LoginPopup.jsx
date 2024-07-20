@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import "../styles/LoginPopup.css";
-import CloseButton from '../media/close-circle.png';
 import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
 import { validateCredentials } from "../../utils/validationUtils";
@@ -60,9 +59,6 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
 
     return (
         <div className="login-popup">
-            <div className="imgWrapper">
-                <img src={CloseButton} alt="Close Button" />
-            </div>
             <div className="text-wrapper">
                 <h1>Accedi</h1>
                 <div className="line" />

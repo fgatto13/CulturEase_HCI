@@ -7,8 +7,9 @@ export const Dropdown = () => {
         <div className='menuBox'>
             <nav>
                 <ul>
-                    <li><Link />Cucina</li>
-                    <li><Link />Istruzione</li>
+                    <li><Link to={"/cucina"}>Cucina</Link></li>
+                    <li><Link to={"/istruzione"}>Istruzione</Link></li>
+                    <li><Link to={"/catalogo"}>Catalogo</Link></li>
                 </ul>
             </nav>
         </div>

@@ -8,6 +8,7 @@ function Istruzione(){
         <>
         <Header />
         <main className="mainIstruzione">
+            <h1 className="ksh1">Proposte in aula</h1>
             <GridScroll elements={elementsConfig}/>
         </main>
         <Footer/>

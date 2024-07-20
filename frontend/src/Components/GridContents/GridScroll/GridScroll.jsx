@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './GridScroll.css';
 
 const GridScroll = ({ elements, ItemComponent }) => {
-
-  const elementsPerPage = 6;
-  const [startIndex, setStartIndex] = useState(0);
-  const [page, setPage] = useState(0);
-  const [currentElements, setCurrentElements] = useState([]);
-  const [filteredElements, setFilteredElements] = useState(elements);
   const [selectedElement, setSelectedElement] = useState(null);
-
-  useEffect(() => {
-    const newStartIndex = page * elementsPerPage;
-    setStartIndex(newStartIndex);
-    setCurrentElements(filteredElements.slice(newStartIndex, newStartIndex + elementsPerPage));
-  }, [page, filteredElements]);
 
   if (!Array.isArray(elements)) {
     console.error("elements should be an array");
@@ -29,12 +17,11 @@ const GridScroll = ({ elements, ItemComponent }) => {
   };
 
   return (
-    <div className="Layout">
-
-      <div className="gridContainer">
-        {currentElements.map((element, index) => (
+    <>
+      <div className="ScrollgridContainer">
+        {elements.map((element, index) => (
           <div
-            key={startIndex + index}
+            key={index}
             className="elementBox"
             onClick={() => handleElementClick(element)}
           >
@@ -47,7 +34,7 @@ const GridScroll = ({ elements, ItemComponent }) => {
       {selectedElement && (
         <ItemComponent element={selectedElement} onClose={handleCloseProductDetails} />
       )}
-    </div>
+    </>
   );
 };
 

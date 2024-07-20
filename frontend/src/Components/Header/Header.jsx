@@ -22,6 +22,7 @@ function Header(){
                 <ul>
                     <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/bacheca"}>Bacheca</Link></li>
+                    {/* eslint-disable-next-line*/}
                     <li><a href='#' onClick={()=>{toggle()}}>Servizi</a></li>
                     <li>
                         <Link to={"/login"}>

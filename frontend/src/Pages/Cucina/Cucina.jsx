@@ -8,6 +8,7 @@ function Cucina(){
         <>
         <Header />
         <main className="mainCucina">
+            <h1 className="ksh1">Proposte in cucina</h1>
             <GridScroll elements={elementsConfig} />
         </main>
         <Footer />
