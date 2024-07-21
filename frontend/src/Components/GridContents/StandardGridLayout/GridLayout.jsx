@@ -72,8 +72,6 @@ const GridLayout = ({ elements, ItemComponent }) => {
             onClick={() => handleElementClick(element)}
           >
             <img src={element.image} alt={element.title} className="element-image" />
-            <h1 className="element-title">{element.title}</h1>
-            <p className="element-description">{element.descrizione}</p>
           </div>
         ))}
       </div>

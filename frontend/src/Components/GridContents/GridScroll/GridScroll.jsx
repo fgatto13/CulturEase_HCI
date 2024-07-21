@@ -27,7 +27,6 @@ const GridScroll = ({ elements, ItemComponent }) => {
           >
             <img src={element.image} alt={element.title} className="element-image" />
             <h1 className="element-title">{element.title}</h1>
-            <p className="element-description">{element.descrizione}</p>
           </div>
         ))}
       </div>
