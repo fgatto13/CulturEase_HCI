@@ -5,7 +5,7 @@ import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
 import { validateCredentials } from "../../utils/validationUtils";
 import ErrorMessage from "../ErrorMessage";
-import useAuth from '../../../Hooks';  // Adjust the path as necessary
+import useAuth from '../../../Hooks';  
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
@@ -28,11 +28,11 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
 
         if (isValid) {
             try {
-                await login(email, password);
+                 // Francè prima di mettere cose assicurati che FUNZIONANO!!
+                 // await login(email, password);
 
-                // Check if the email is the admin email
                 const adminEmail = 'admin@example.com';
-                const adminPassword = 'adminPassword'; // Replace with the actual admin password
+                const adminPassword = 'adminPassword1'; 
 
                 if (email === adminEmail && password === adminPassword) {
                     sessionStorage.setItem('isAdmin', 'true');
@@ -42,14 +42,14 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
                 sessionStorage.setItem('isLoggedIn', 'true');
                 alert(`Logged in as: ${email}`);
                 setError('');
-                setIsErrorVisible(false); // Hide error message when login is successful
+                setIsErrorVisible(false); 
             } catch (e) {
                 setError(e.message);
-                setIsErrorVisible(true); // Show error message when login fails
+                setIsErrorVisible(true); 
             }
         } else {
             setError(message);
-            setIsErrorVisible(true); // Show error message when login fails
+            setIsErrorVisible(true); 
         }
     };
 

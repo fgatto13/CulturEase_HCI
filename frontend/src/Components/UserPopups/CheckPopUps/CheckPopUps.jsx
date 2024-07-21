@@ -25,10 +25,10 @@ const CheckPopUps = () => {
            <div className='boxbutton-popUp'>
               <Button className='button-popUp cancel-button' 
                       text='Cancella' 
-                      funct={() => handleOpenFinalPopUp('Richiesta cancellata!',false)}></Button>
+                      funct={() => handleOpenFinalPopUp('Operazione cancellata!',false)}></Button>
               <Button className='button-popUp' 
                       text='Conferma' 
-                      funct={() => handleOpenFinalPopUp('Richiesta avvenuta con successo!',true)}></Button>
+                      funct={() => handleOpenFinalPopUp('Operazione avvenuta con successo!',true)}></Button>
            </div>
           </div>
         </div>

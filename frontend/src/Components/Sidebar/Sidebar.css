@@ -1,0 +1,79 @@
+.sidebar {
+	width: 100%;
+    height: 100%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	padding: 3% 4%;
+	border-radius: 25px;
+	background-color: #DA3535;
+}
+
+hr{
+	margin: 2% 0 2% 0 !important;
+}
+
+span{
+	font-weight: bold !important;
+	color: #2A6364 !important;
+	font-size: 14px;
+}
+
+.space{
+	height: 10px;
+}
+
+.button{
+	text-align: center;
+}
+
+.Form{
+  background-color: #fff;
+  padding: 20px 30px 25px 30px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+}
+
+h4{
+	font-weight: bold !important;
+	color: #2A6364 !important;
+	text-align: center;
+}
+
+input{
+	height: 37px;
+	width: 100%;
+	font-size: 14px;
+	padding: 0 6px 0 6px;
+	border-radius: 5px;
+}
+
+textarea{
+	height: 74px;
+	width: 100%;
+	font-size: 14px;
+	padding: 4px 6px 0 6px;
+	border-radius: 5px;
+}
+
+.sottotitoloForm{
+	color: #8d8d8d !important;
+	text-align: center;
+	font-size: 13px;
+	margin-bottom: 10px;
+}
+
+.inviomodulo{
+	background-color: #DA3535;
+	padding: 8px 30px 8px 30px;
+	font-weight: bold !important;
+	font-size: 14px;
+	color: white;
+	border-radius: 25px;
+	width: 65%;
+}
+
+.opzioni{
+	border: none;
+	width: 90%;
+}

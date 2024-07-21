@@ -1,0 +1,142 @@
+.MessaggioSinistra {
+	width: 100%;
+	margin: 1% 22% 1% 0%;
+	float: left;
+}
+
+.MessaggioDestra {
+	width: 100%;
+	margin: 1% 0% 1% 22%;
+	float: left;
+}
+
+h5{
+	font-weight: bold !important;
+	color: #2A6364 !important;
+}
+
+hr{
+	margin: 1% 1% 1% 0 !important;
+}
+
+span{
+	font-weight: 400 !important;
+	color: #2A6364 !important;
+}
+
+button{
+	background-color: transparent;
+	color: red;
+	border: none;
+}
+
+.DIVelimina {
+	width: 100%;
+	text-align: right;
+	font-size: 14px;
+}
+
+.Spazio {
+	width: 22%;
+	float: left;
+}
+
+.divImg{
+	width:5.5%;
+	float: left;
+	text-align: center;
+}
+
+.divText {
+	width: 72.5%;
+	float: left;
+	background-color: white;
+	padding: 5px 15px 5px 15px;
+	border-radius: 10px;
+}
+
+.userimg{
+	width:45px;
+	border-radius: 50px;
+}
+
+.radiobutton {
+	display: flex;
+	align-items: center;
+	margin: 10px;
+}
+
+.radiobutton input {
+	width: 6%;
+	height: 22px;
+}
+
+.scroll-container {
+	height: 100%;
+	overflow-y: scroll; 
+    position: relative;
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+    flex: 1;
+    margin-right: 20px; 
+    overflow-y: auto; 
+}
+
+.sidebar-container {
+    flex: 0 0 325px; 
+}
+
+	.scroll-container::-webkit-scrollbar {
+		display: none; 
+	}
+
+    .inputBacheca {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - 16px);
+        display: flex;
+        align-items: center;
+        padding: 10px 8px;
+        box-sizing: border-box; 
+    }
+    
+    .invioInput {
+        width: calc(100% - 47px); 
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+        box-sizing: border-box; 
+    }
+    
+    .invioimg {
+        width: 37px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+.areaBacheca {
+	height:110vh;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(./image/sfondobacheca.jpg);
+    background-color: rgba(255, 255, 255, 0.5); 
+    background-blend-mode: lighten; 
+}
+
+.like {
+	width: 100%;
+	text-align: right;
+	font-size: 14px;
+}
+
+.likeimg {
+	width: 15px;
+}
+
+.dontlikeimg {
+	width: 15px;
+	transform: rotate(180deg);
+}

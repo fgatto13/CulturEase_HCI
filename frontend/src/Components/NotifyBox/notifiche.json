@@ -1,0 +1,17 @@
+[
+    {
+        "image": "/images/user1.jpg",
+        "name": "John Doe",
+        "description": "Ha proposto un progetto."
+    },
+    {
+        "image": "/images/user1.jpg",
+        "name": "Jane Smith",
+        "description": "Ha proposto un progetto."
+    },
+    {
+        "image": "/images/user1.jpg",
+        "name": "Mike Johnson",
+        "description": "Ha proposto un progetto."
+    }
+]
