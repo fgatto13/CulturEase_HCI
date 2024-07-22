@@ -2,7 +2,8 @@ import {React, useState} from 'react';
 import './Sidebar.css';
 import FormProgetto from '../FormBacheca/FormProgetto';
 import FormProposta from '../FormBacheca/FormProposta';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar() {
   const [isOpen, setIsOpen]=useState(false);
@@ -10,14 +11,16 @@ function Sidebar() {
     setIsOpen(!isOpen);
   }
   return (
-    <>
-    <div className={`menuButton ${isOpen ? 'openButton' : ''}`} onClick={toggle}></div>
-      <div className={`sidebar ${isOpen ? 'openBar' : ''}`}>
+    <div className={`sideMain ${isOpen ? 'openBar' : ''}`}>
+      <div className={`menuButton ${isOpen ? 'openMenu' : ''}`} onClick={toggle}>
+        <FontAwesomeIcon icon={faChevronLeft} style={{color: "#ffffff",fontSize: "30px"}} />
+      </div>
+      <div className="sidebar">
           <FormProgetto />
           <div className="space"></div>
           <FormProposta />   
     </div>
-    </>
+    </div>
   );
 }
 

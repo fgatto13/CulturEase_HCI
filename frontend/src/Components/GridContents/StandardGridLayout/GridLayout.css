@@ -29,12 +29,6 @@
 @media only screen and (max-width: 1000px){
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);
-        gap: 50px
+        gap: 20px;
     }
 }
-  
-@media only screen and (max-width: 700px){
-    .gridContainer {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}  

@@ -6,7 +6,9 @@
 	display: flex;
 	justify-content: space-between;
 }
-
+html{
+	overflow-x: hidden;
+}
 .inputContainer{
 	position: relative;
 	width: 100%;
@@ -116,7 +118,8 @@ button{
 }
 
 .areaBacheca {
-	height:90vh;
+	position: relative;
+	height: 80vh;
 	width: 100%;
     padding-inline: 20px;
     display: flex;

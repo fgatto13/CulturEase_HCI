@@ -30,6 +30,7 @@
 
 .burgerMenu .line {
     background-color: #2a6364;
+    border-radius: 25px;
     position: absolute;
     height: 5px;
     transition: all 0.5s ease-in-out;

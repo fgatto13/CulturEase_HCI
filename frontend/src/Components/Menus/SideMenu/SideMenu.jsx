@@ -47,6 +47,7 @@ const SideMenu = ({admin}) => {
                                 {sessionStorage.getItem('isLoggedIn') === 'true' ? 'Account' : 'Login'}
                             </Link>
                         </li>
+                        <li><Link to={'/catalogo'}>Catalogo</Link></li>
                     </ul>
                 </nav>
             </div>

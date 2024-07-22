@@ -6,9 +6,9 @@
 }
 
 body{
-    height: 80svh;
-    width: 100%;
+    width: 100vw;
     background-color: #2a6364;
+    overflow-x: hidden;
 }
 
 header{
@@ -22,6 +22,7 @@ main{
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
