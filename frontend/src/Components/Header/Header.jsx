@@ -8,11 +8,21 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from '../Menus';
 import NotifyBox from '../NotifyBox/NotifyBox';
 import { SideMenu } from '../Menus/SideMenu';
+import BoxRichieste from '../BoxRichieste/BoxRichieste';
 
 function Header() {
     const [active, setActive] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [showNotifyBox, setShowNotifyBox] = useState(false);
+    const [isBoxVisible, setIsBoxVisible] = useState(false);
+
+    const handleOpenBox = () => {
+        setIsBoxVisible(true);
+    };
+
+    const handleCloseBox = () => {
+        setIsBoxVisible(false);
+    };
 
     useEffect(() => {
         const adminStatus = sessionStorage.getItem('isAdmin') === 'true';
@@ -36,10 +46,13 @@ function Header() {
                 </div>
                 <nav className='notResp'>
                     <ul>
-                        {!isAdmin && <li>Fai richiesta</li>}
+
+                        {!isAdmin && <li onClick={handleOpenBox}><Link>Fai richiesta</Link></li>}
+                        <BoxRichieste isVisible={isBoxVisible} onClose={handleCloseBox} />
+
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/bacheca"}>Bacheca</Link></li>
-                        {/*eslint-disable-next-line*/}
+                        
                         <li><a href='#' onClick={toggle}>Servizi</a></li>
                         <li>
                             <Link to={ isAdmin? "#" : "/login"}>
