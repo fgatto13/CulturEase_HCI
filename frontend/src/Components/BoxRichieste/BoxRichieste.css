@@ -32,10 +32,7 @@
     margin: 0;
 }
 
-.close-button {
-    background: none;
-    border: none;
-    font-size: 16px;
+.close-button{
     cursor: pointer;
 }
 
@@ -64,4 +61,14 @@
     font-size: 24px;
     text-align: center;
     margin: 10px 0;
+}
+
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link{
+    text-decoration: none;
+    color: red;
 }

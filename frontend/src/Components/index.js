@@ -3,7 +3,6 @@ import Footer from "./Footer";
 import Button from "./InteractiveComponents";
 import { LoginPopup, RegisterPopup } from "./UserPopups";
 import { GridLayout, GridScroll } from "./GridContents";
-import SideNav from "./SideNav";
 
 export {
     Header,
@@ -12,6 +11,5 @@ export {
     LoginPopup,
     RegisterPopup,
     GridLayout,
-    GridScroll,
-    SideNav
+    GridScroll
 };

@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import BoxRichieste from '../../BoxRichieste/BoxRichieste';
 import './SideMenu.css';
 
-const SideMenu = () => {
+const SideMenu = ({admin}) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isBoxVisible, setIsBoxVisible] = useState(false);
+
+    const handleOpenBox = () => {
+        setIsBoxVisible(true);
+    };
+
+    const handleCloseBox = () => {
+        setIsBoxVisible(false);
+    };
 
     const toggle = () => {
         if (!isMenuActive) {
@@ -26,8 +36,12 @@ const SideMenu = () => {
             <div className={`SideMenu ${isMenuActive ? 'openMenu' : ''}`}>
                 <nav className="reactive">
                     <ul>
+                        {!admin && <li onClick={handleOpenBox}><Link>Fai richiesta</Link></li>}
+                        <BoxRichieste isVisible={isBoxVisible} onClose={handleCloseBox} />
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/bacheca"}>Bacheca</Link></li>
+                        {admin && <li><Link to={"/cucina"}>Cucina</Link></li>}
+                        {admin &&<li><Link to={"/istruzione"}>Istruzione</Link></li>}
                         <li>
                             <Link to={"/login"}>
                                 {sessionStorage.getItem('isLoggedIn') === 'true' ? 'Account' : 'Login'}

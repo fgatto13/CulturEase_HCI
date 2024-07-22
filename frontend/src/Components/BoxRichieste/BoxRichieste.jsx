@@ -1,5 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import './BoxRichieste.css';
 import Button from '../InteractiveComponents';
 import { validateProperName, validateDescription } from '../utils/validationUtils';
@@ -7,6 +6,8 @@ import { PopUpContext } from '../UserPopups/PopUpContext';
 import CheckPopUps from "../UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
 import { ErrorMessage } from '../UserPopups';
+import closeIcon from './close-circle.png';
+import { Link } from 'react-router-dom';
 
 const BoxRichieste = ({ isVisible, onClose }) => {
     const { showPopUp, showFinalPopUp, handleOpenPopUp } = useContext(PopUpContext);
@@ -19,8 +20,6 @@ const BoxRichieste = ({ isVisible, onClose }) => {
     });
     const [error, setError] = useState('');
     const [isErrorVisible, setIsErrorVisible] = useState(false);
-
-    const navigate = useNavigate();
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -113,7 +112,7 @@ const BoxRichieste = ({ isVisible, onClose }) => {
                 <div className="box-richieste">
                     <div className="box-richieste-header">
                         <h3>Richieste</h3>
-                        <button className="close-button" onClick={onClose}>X</button>
+                        <img src={closeIcon} alt="" className={"close-button"} onClick={onClose}/>
                     </div>
                     <div className="box-richieste-content">
                             <div className="form-group">
@@ -127,7 +126,7 @@ const BoxRichieste = ({ isVisible, onClose }) => {
                             </div>
                             {selectedOption === 'donazioni' && (
                                 <>
-                                    <button type="button" onClick={() => navigate('/catalogo')}><a>Visita catalogo</a></button>
+                                    <Link to={'/catalogo'} className='link'>Visita catalogo</Link>
                                     <p>Oppure richiedi nuovi doni</p>
                                     <div className="arrow-down">↓</div>
                                 </>
@@ -166,7 +165,9 @@ const BoxRichieste = ({ isVisible, onClose }) => {
                                     </div>
                                 </>
                             )}
-                            <Button text="Invia Richiesta" funct={() => handleSubmit()}/>
+                            <div className="btnContainer">
+                                <Button text="Invia Richiesta" funct={() => handleSubmit()}/>
+                            </div>
                             {showPopUp && <CheckPopUps />}
                             {showFinalPopUp && <FinalPopUps />}
                             <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
