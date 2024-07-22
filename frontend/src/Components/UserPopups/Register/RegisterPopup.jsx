@@ -51,7 +51,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                 <div className="line" />
             </div>
             <div className="formContainer">
-                <div className="Form">
+                <div className="RegisterForm">
                     <label className="label" htmlFor="input-1">
                         Nome
                     </label>
@@ -88,7 +88,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
                         <option value="2">Non specificato</option>
                     </select>
                 </div>
-                <div className="Form">
+                <div className="RegisterForm">
                     <label className="label" htmlFor="input-1">
                         Email
                     </label>
@@ -136,7 +136,7 @@ export const RegisterPopup = ({ inputType = "email", inputType1 = "password", to
             <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
 
             <p className="registrati">
-                <span className="span">Hai già un account? </span>
+                <span className="aSpan">Hai già un account? </span>
                 <span className="aLink" onClick={toggleForm}>Accedi qui</span>
             </p>
         </div>

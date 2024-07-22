@@ -7,6 +7,7 @@ import Admin from '../../Media/campana.png';
 import { Link } from 'react-router-dom';
 import { Dropdown } from '../Menus';
 import NotifyBox from '../NotifyBox/NotifyBox';
+import { SideMenu } from '../Menus/SideMenu';
 
 function Header() {
     const [active, setActive] = useState(false);
@@ -33,11 +34,12 @@ function Header() {
                     <img src={logo1} alt="logo" className='headerLogo'/>
                     <img src={logo2} alt="logo header" className='headerImg'/>
                 </div>
-                <nav>
+                <nav className='notResp'>
                     <ul>
                         {!isAdmin && <li>Fai richiesta</li>}
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/bacheca"}>Bacheca</Link></li>
+                        {/*eslint-disable-next-line*/}
                         <li><a href='#' onClick={toggle}>Servizi</a></li>
                         <li>
                             <Link to={ isAdmin? "#" : "/login"}>
@@ -51,6 +53,7 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
+                <SideMenu />
             </header>
             {active && <Dropdown />}
             <NotifyBox isVisible={showNotifyBox} onClose={toggleNotifyBox} />

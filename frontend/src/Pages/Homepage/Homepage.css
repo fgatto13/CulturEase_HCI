@@ -10,6 +10,7 @@
         margin: 20px;
     }
     animation: startAnimation 0.5s 1 ease-in;
+    margin-inline: 20px;
 }
 
 @keyframes startAnimation {

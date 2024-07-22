@@ -28,9 +28,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
 
         if (isValid) {
             try {
-                 // Francè prima di mettere cose assicurati che FUNZIONANO!!
-                 // await login(email, password);
-
+                login(email, password);
                 const adminEmail = 'admin@example.com';
                 const adminPassword = 'adminPassword1'; 
 
@@ -85,7 +83,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
                 onChange={handlePasswordChange}
             />
             <p className="password-dimenticata">
-                <span className="span">Password dimenticata? </span>
+                <span className="aSpan">Password dimenticata? </span>
                 <span className="aLink">Clicca qui</span>
             </p>
 
@@ -94,7 +92,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
             <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
 
             <p className="registrati">
-                <span className="span">Non sei registrato? </span>
+                <span className="aSpan">Non sei registrato? </span>
                 <span className="aLink" onClick={toggleForm}>Clicca qui</span>
             </p>
         </div>

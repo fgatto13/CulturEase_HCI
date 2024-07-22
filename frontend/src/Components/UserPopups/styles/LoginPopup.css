@@ -94,12 +94,12 @@
     text-align: center;
 }
   
-.login-popup span {
+.login-popup .aSpan {
     color: #959595;
     font-family: var(--small-text-font-family);
     font-size: var(--small-text-font-size);
     font-style: var(--small-text-font-style);
-    font-weight: var(--small-text-font-weight);
+    font-weight: var(--small-text-font-weight) !important;
     letter-spacing: var(--small-text-letter-spacing);
     line-height: var(--small-text-line-height);
 }
@@ -117,7 +117,7 @@
     width: 100%;
 }
 
-.Form{
+.RegisterForm{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,4 +140,9 @@ select {
 
 select::-ms-expand {
     display: none;
+}
+
+@media only screen and (max-width:1000px) {
+    .formContainer{flex-direction: column;}
+    .login-popup{margin-block: 50px;}
 }
