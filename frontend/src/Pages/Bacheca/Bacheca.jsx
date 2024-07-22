@@ -76,19 +76,19 @@ export default function BachecaPage() {
                                 messaggio={messaggio.messaggio}
                             />
                         ))}
+                    </div>
+                    <div className="inputContainer">
                         <div className="inputBacheca">
                             <input 
                                 type="text" 
                                 className="invioInput" 
                                 placeholder="Condividi i tuoi pensieri con tutta la community..." 
                                 onChange={(e) => setMessage(e.target.value)}
-                            />
+                                />
                             <button onClick={handleSubmit}><img className="invioimg" src={imgInvio} alt="ImgInvio" /></button>
                         </div>
                     </div>
-                    <div className="sidebar-container">
-                        <Sidebar />
-                    </div>
+                    <Sidebar />
                 </div>
 
                 {showPopUp && <CheckPopUps />}

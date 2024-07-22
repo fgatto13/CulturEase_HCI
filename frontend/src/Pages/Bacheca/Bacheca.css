@@ -1,15 +1,16 @@
-.MessaggioSinistra {
-	width: 100%;
-	margin: 1% 22% 1% 0%;
-	float: left;
-}
-
+.MessaggioSinistra,
 .MessaggioDestra {
 	width: 100%;
-	margin: 1% 0% 1% 22%;
 	float: left;
+	margin-block: 2%;
+	display: flex;
+	justify-content: space-between;
 }
 
+.inputContainer{
+	position: relative;
+	width: 100%;
+}
 h5{
 	font-weight: bold !important;
 	color: #2A6364 !important;
@@ -42,17 +43,19 @@ button{
 }
 
 .divImg{
-	width:5.5%;
+	width:10%;
+	height: auto;
 	float: left;
 	text-align: center;
 }
 
 .divText {
-	width: 72.5%;
+	width: 90%;
 	float: left;
 	background-color: white;
 	padding: 5px 15px 5px 15px;
 	border-radius: 10px;
+	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 .userimg{
@@ -72,58 +75,54 @@ button{
 }
 
 .scroll-container {
-	height: 100%;
 	overflow-y: scroll; 
     position: relative;
 	scrollbar-width: none; 
 	-ms-overflow-style: none;
-    flex: 1;
-    margin-right: 20px; 
-    overflow-y: auto; 
+	width: 100vw;
+	padding: 2%;
 }
 
-.sidebar-container {
-    flex: 0 0 325px; 
+.scroll-container::-webkit-scrollbar {
+	display: none; 
 }
 
-	.scroll-container::-webkit-scrollbar {
-		display: none; 
-	}
-
-    .inputBacheca {
-        position: sticky;
-        bottom: 0;
-        left: 0;
-        width: calc(100% - 16px);
-        display: flex;
-        align-items: center;
-        padding: 10px 8px;
-        box-sizing: border-box; 
-    }
+.inputBacheca {
+    position: absolute;
+    bottom: 0;
+	left: 0;
+    width: calc(100% - 16px);
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    box-sizing: border-box; 
+}
     
-    .invioInput {
-        width: calc(100% - 47px); 
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 10px;
-        box-sizing: border-box; 
-    }
+.invioInput {
+	width: calc(100% - 47px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-sizing: border-box; 
+	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.5);
+}
     
-    .invioimg {
-        width: 37px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
+.invioimg {
+    width: 37px;
+    border-radius: 10px;
+    cursor: pointer;
+	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.5);
+}
 
 .areaBacheca {
-	height:110vh;
-    padding: 20px;
+	height:90vh;
+	width: 100%;
+    padding-inline: 20px;
     display: flex;
-    justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
     background-image: url(./image/sfondobacheca.jpg);
-    background-color: rgba(255, 255, 255, 0.5); 
-    background-blend-mode: lighten; 
 }
 
 .like {
