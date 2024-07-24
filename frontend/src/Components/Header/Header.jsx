@@ -40,10 +40,22 @@ function Header() {
                         <li><Link to={"/bacheca"}>Bacheca</Link></li>
                         {/*eslint-disable-next-line*/}
                         <li><a href='#' onClick={toggle}>Servizi</a></li>
+                        {isAdmin &&
                         <li>
-                            <Link to={ isAdmin? "#" : "/login"}>
+                            <Link to={"#"}>
                                 <img 
-                                    src={isAdmin ? Admin : User} 
+                                    src={Admin} 
+                                    alt="notification" 
+                                    className='headerImg' 
+                                    onClick={isAdmin ? toggleNotifyBox : null}
+                                    />
+                            </Link>
+                        </li>
+                        }
+                        <li>
+                            <Link to={"/login"}>
+                                <img 
+                                    src={User} 
                                     alt="userLogin" 
                                     className='headerImg' 
                                     onClick={isAdmin ? toggleNotifyBox : null}

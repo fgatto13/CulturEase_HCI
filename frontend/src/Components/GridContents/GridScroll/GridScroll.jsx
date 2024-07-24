@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ItemDetails from "../../ItemDetails/ItemDetails";
 import './GridScroll.css';
 
 const GridScroll = ({ elements, ItemComponent }) => {
@@ -31,7 +32,7 @@ const GridScroll = ({ elements, ItemComponent }) => {
         ))}
       </div>
       {selectedElement && (
-        <ItemComponent element={selectedElement} onClose={handleCloseProductDetails} />
+        <ItemDetails element={selectedElement} buttonDisplay={false} onClose={handleCloseProductDetails} />
       )}
     </>
   );

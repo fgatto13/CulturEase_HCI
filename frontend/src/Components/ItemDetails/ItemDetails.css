@@ -9,12 +9,16 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: open 0.5s 1 both;
   }
-  
+  @keyframes open {
+    from{opacity: 0;}
+    to{opacity: 1;}
+  }
   .product-details {
     background: #FFF;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 25px;
     width: 80%;
     max-width: 600px;
     display: flex;
@@ -25,13 +29,15 @@
   .close-button-container {
     width: 100%;
     text-align: right;
-  }
-  
-  .close-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+    img{
+      height: 50px;
+      width: auto;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+    img:hover{
+        transform: scale(120%);
+    }
   }
   
   .image-section {
@@ -47,8 +53,13 @@
   
   .info-section {
     width: 100%;
-    margin-top: 20px;
+    margin-block: 20px;
     text-align: center;
+    ul{
+      list-style: none;
+      text-align: left;
+      padding: 20px;
+    }
   }
   
   .info-section h1 {

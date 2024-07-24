@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BoxRichieste from '../../BoxRichieste/BoxRichieste';
 import './SideMenu.css';
 
-const SideMenu = ({admin}) => {
+const SideMenu = ({ admin }) => {
     const [isMenuActive, setIsMenuActive] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isBoxVisible, setIsBoxVisible] = useState(false);
@@ -56,5 +56,4 @@ const SideMenu = ({admin}) => {
 }
 
 export default SideMenu;
-
 

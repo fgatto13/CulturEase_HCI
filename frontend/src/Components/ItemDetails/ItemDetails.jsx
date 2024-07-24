@@ -5,8 +5,9 @@ import Button from '../InteractiveComponents';
 import CheckPopUps from "../UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
 import { PopUpContext } from "../UserPopups/PopUpContext";
+import closeIcon from '../Media/close-circle.png';
 
-const ItemDetails = ({ element, onClose }) => {
+const ItemDetails = ({ element, onClose, buttonDisplay, itemType }) => {
   const { showPopUp, showFinalPopUp, handleOpenPopUp } = useContext(PopUpContext);
   const isAdmin = sessionStorage.getItem('isAdmin') === 'true';
 
@@ -16,18 +17,21 @@ const ItemDetails = ({ element, onClose }) => {
     <div className="product-details-overlay">
       <div className="product-details">
         <div className="close-button-container">
-          <button className="close-button" onClick={onClose}>X</button>
+          <img src={closeIcon} alt='close button' onClick={onClose}/>
         </div>
         <div className="image-section">
           <img src={element.image} alt={element.title} />
         </div>
         <div className="info-section">
-          <h1>{element.title}</h1>
-          <p>{element.descrizione}</p>
-          <p><strong>Note:</strong> {element.note}</p>
-          <p><strong>Taglia:</strong> {element.taglia}</p>
-
-          {!isAdmin && <Button text="Richiedi prodotto" 
+          <h1 style={{textAlign: 'left'}}>{element.title}</h1>
+          <p style={{textAlign: 'left'}}>{element.descrizione}</p>
+          {itemType===1 &&
+          <ul>
+            <li><strong>Note:</strong> {element.note}</li>
+            <li><strong>Taglia:</strong> {element.taglia}</li>
+          </ul>
+            }
+          {!isAdmin && buttonDisplay && <Button text="Richiedi prodotto" 
                    funct={() => handleOpenPopUp(`sei sicuro di voler richiedere "${element.title}"? `)} />}
           {showPopUp && <CheckPopUps />}
           {showFinalPopUp && <FinalPopUps />}

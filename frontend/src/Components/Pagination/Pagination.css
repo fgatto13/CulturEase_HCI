@@ -1,7 +1,7 @@
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
   }
   
   .pagination-button {
@@ -16,18 +16,19 @@
     border-radius: 4px;
     border: 1px solid #DFE3E8;
     background: #FFF;
-    color: var(--Dark-Grey-400, #212B36);
     text-align: center;
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 20px; /* 100% */
+    transition: all 0.5s ease-in-out;
   }
   
   .pagination-button:hover{
     background-color: #2a6364;
     color: var(--Dark-Grey-400, #f8f8f8);
+    scale: 110%;
   }
 
   .selected-button{

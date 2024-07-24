@@ -3,6 +3,7 @@ import './CheckPopUps.css';
 import { PopUpContext } from '../PopUpContext';
 import { useContext } from "react";
 import Button from '../../InteractiveComponents';
+import closeIcon from '../media/close-circle.png';
 
 const subTitle = "Le modifiche apportate sono state salvate e puoi rivederle in seguito, se necessario.";
 
@@ -14,10 +15,7 @@ const CheckPopUps = () => {
       <div className="popup-overlay">
         <div className="popup-content">
           <div className='boxPopUp'>
-           <svg className='close-popup' xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" onClick={handleClosePopUp}>
-               <path d="M15 25L25 15" stroke="#2A6364" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-               <path d="M25 25L15 15" stroke="#2A6364" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-           </svg>
+           <img src={closeIcon} alt='close icon' className='close-popup' onClick={handleClosePopUp}/>
            <div className='boxtext-popUp'>
              <label className='title-popUp'>{message}</label>
              <label className='sub-title-popUp'>{subTitle}</label>

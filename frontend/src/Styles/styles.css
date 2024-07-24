@@ -6,19 +6,18 @@
 }
 
 body{
-    width: 100vw;
     background-color: #2a6364;
-    overflow-x: hidden;
 }
 
 header{
     width: 100%;
     height: 80px;
+    overflow-x: hidden;
 }
 
 main{
     min-width: 100%;
-    min-height: 80vh;
+    min-height: 80dvh;
     background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,6 +28,7 @@ main{
     align-items: center;
     text-align: center;
     color: #2a6364;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 1000px) {

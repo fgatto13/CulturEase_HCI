@@ -28,7 +28,6 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
 
         if (isValid) {
             try {
-                login(email, password);
                 const adminEmail = 'admin@example.com';
                 const adminPassword = 'adminPassword1'; 
 
@@ -36,6 +35,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
                     sessionStorage.setItem('isAdmin', 'true');
                 } else {
                     sessionStorage.setItem('isAdmin', 'false');
+                    login(email, password);
                 }
                 sessionStorage.setItem('isLoggedIn', 'true');
                 alert(`Logged in as: ${email}`);

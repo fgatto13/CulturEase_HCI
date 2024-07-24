@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './NotifyBox.css';
 import notificationsData from './notifiche.json'; 
+import closeIcon from '../Media/close-circle.png';
 
 const NotifyBox = ({ isVisible, onClose }) => {
     const [notifications, setNotifications] = useState([]);
@@ -16,7 +17,7 @@ const NotifyBox = ({ isVisible, onClose }) => {
                 <div className="notify-box">
                     <div className="notify-header">
                         <h3>Notifiche</h3>
-                        <button className="close-button" onClick={onClose}>X</button>
+                        <img src={closeIcon} className={'close-button'} alt='close' onClick={onClose}/>
                     </div>
                     <div className="notify-content">
                         {notifications.map((notification, index) => (

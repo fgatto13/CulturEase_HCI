@@ -4,6 +4,7 @@ header{
     justify-content: space-between;
     background-color: #fff;
     border-bottom: 1px solid #2a6364;
+    overflow-x: hidden;
     nav{
         display: flex;
     }

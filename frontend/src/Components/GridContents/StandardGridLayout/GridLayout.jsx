@@ -84,7 +84,7 @@ const GridLayout = ({ elements, ItemComponent }) => {
       />
 
       {selectedElement && (
-        <ItemComponent element={selectedElement} onClose={handleCloseProductDetails} />
+        <ItemComponent element={selectedElement} itemType={1} buttonDisplay={true} onClose={handleCloseProductDetails} />
       )}
     </div>
   );
