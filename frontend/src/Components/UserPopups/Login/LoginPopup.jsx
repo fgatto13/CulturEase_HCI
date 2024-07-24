@@ -5,7 +5,8 @@ import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
 import { validateCredentials } from "../../utils/validationUtils";
 import ErrorMessage from "../ErrorMessage";
-import useAuth from '../../../Hooks';  
+import useAuth from '../../../Hooks';
+import { UserDetails } from "../UserDetails";
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
     const [error, setError] = useState('');
     const [isErrorVisible, setIsErrorVisible] = useState(false);
 
-    const { login } = useAuth();
+    const { login, isLoggedIn } = useAuth();
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -35,9 +36,9 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
                     sessionStorage.setItem('isAdmin', 'true');
                 } else {
                     sessionStorage.setItem('isAdmin', 'false');
-                    login(email, password);
                 }
-                sessionStorage.setItem('isLoggedIn', 'true');
+
+                login(email, password);
                 alert(`Logged in as: ${email}`);
                 setError('');
                 setIsErrorVisible(false); 
@@ -54,6 +55,10 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
     const closeErrorMessage = () => {
         setIsErrorVisible(false);
     };
+
+    if (isLoggedIn) {
+        return <UserDetails/>;
+    }
 
     return (
         <div className="login-popup">

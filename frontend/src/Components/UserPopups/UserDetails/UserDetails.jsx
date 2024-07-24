@@ -1,11 +1,24 @@
 import React from "react";
 import Button from "../../InteractiveComponents";
 import '../styles/LoginPopup.css';
+import useAuth from '../../../Hooks';
+import LoginPopup from "../Login/LoginPopup";
+import UserIcon from '../media/user.svg';
 
-const UserDetails = () =>{
-    return(
+const UserDetails = () => {
+    const { logout, isLoggedIn } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+    };
+    if (!isLoggedIn) {
+        return <LoginPopup/>;
+    }
+
+    return (
         <div className="login-popup">
-            <Button text={'Log Out'} funct={()=>{sessionStorage.setItem('isLoggedIn', 'false')}}/>
+            <img src={UserIcon} alt="usr" />
+            <Button text={'Log Out'} funct={handleLogout} />
         </div>
     );
 }
