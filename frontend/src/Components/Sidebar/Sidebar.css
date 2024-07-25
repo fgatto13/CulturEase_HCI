@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 	height: auto;
-	right: -390px;
+	right: -300px;
 	bottom: 0;
 	top:0;
 	transition: all 0.5s ease-in-out;
@@ -21,6 +21,7 @@
 	border-radius: 25px;
 	background-color: #DA3535;
 	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.5);
+	width: 300px;
 }
 .menuButton{
 	cursor: pointer;
@@ -78,6 +79,7 @@ span{
 	.opzioni{
 		border: none;
 		width: 90%;
+		margin-bottom: 5px;
 	}
 	.sottotitoloForm{
 		color: #8d8d8d !important;
@@ -91,8 +93,12 @@ span{
 		font-weight: bold !important;
 		color: white;
 		border-radius: 25px;
-		width: 65%;
+		width: 50%;
+		box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+		cursor: pointer;
+		transition: all 0.5s ease-in-out;
 	}
+	.inviomodulo:hover{transform: translateY(-2px);}
 }
 .Form:first-child{margin-bottom: 5px;}
 

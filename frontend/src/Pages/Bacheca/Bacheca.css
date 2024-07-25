@@ -1,6 +1,6 @@
 .MessaggioSinistra,
 .MessaggioDestra {
-	width: 100%;
+	width: 90%;
 	float: left;
 	margin-block: 2%;
 	display: flex;
@@ -19,7 +19,7 @@ hr{
 	margin: 1% 1% 1% 0 !important;
 }
 
-span{
+.spanClass{
 	font-weight: 400 !important;
 	color: #2A6364 !important;
 }
@@ -52,9 +52,11 @@ button{
 	width: 90%;
 	float: left;
 	background-color: white;
+	text-align: left;
 	padding: 5px 15px 5px 15px;
 	border-radius: 10px;
 	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.5);
+	span{font-style: normal;}
 }
 
 .userimg{
@@ -78,7 +80,7 @@ button{
     position: relative;
 	scrollbar-width: none; 
 	-ms-overflow-style: none;
-	width: 100vw;
+	width: 90vw;
 	padding: 2%;
 }
 

@@ -22,11 +22,11 @@ function PropostaProgetto({ image, nome, descrizione, classe }){
 						<img className="userimg" src={image} alt="ImgUser1"/>	
 					</div>
 					<div className="divText">
-						<div className="DIVelimina"><button>Elimina X</button></div>
+						<div className="DIVelimina"><button>Elimina</button></div>
 						<h5>Proposta di Progetto</h5>
 						<hr/>
-						<span><b>Nome: </b> {nome}</span><br/>
-						<span><b>Descrizione: </b> {descrizione}</span>
+						<p style={{marginBottom: '5px'}}><b>Nome: </b> {nome}</p>
+						<p><b>Descrizione: </b> {descrizione}</p>
 						
 						<div className='bottom-post'>
 

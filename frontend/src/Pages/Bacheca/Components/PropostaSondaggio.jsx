@@ -7,18 +7,18 @@ function PropostaSondaggio({ image, descrizione, opzione1, opzione2, classe }) {
 		<div className={classe}>
 			<div className="divText">
 				<div className="DIVelimina">
-					<button>Elimina X</button>
+					<button>Elimina</button>
 				</div>
 				<h5>Proposta di Sondaggio</h5>
 				<hr />
-				<span><b>Domanda: </b> {descrizione}</span><br />
+				<p><b>Domanda: </b> {descrizione}</p>
 				<div className="radiobutton">
 					<input type="radio" id="option1" name="option" value="1" />
-					<span><b>Opzione1:</b> {opzione1}</span>
+					<p><b>Opzione 1:</b> {opzione1}</p>
 				</div>
 				<div className="radiobutton">
 					<input type="radio" id="option2" name="option" value="2" />
-					<span><b>Opzione1:</b> {opzione2}</span>
+					<p><b>Opzione 2:</b> {opzione2}</p>
 				</div>
 				<div className="right">
 					<button>Non mi piace <img className="dontrightimg" src={likeimg} alt="dontrightimg" /></button>

@@ -42,16 +42,13 @@ function FormProgetto() {
         value={nome}
         onChange={(e) => setNome(e.target.value)}
       />
-      <div className="space"></div>
       <span htmlFor="formGroupExampleInput" className="form-label">Descrizione</span>
       <textarea 
         placeholder="Inserire descrizione progetto..."
         value={descrizione}
         onChange={(e) => setDescrizione(e.target.value)}>
       </textarea>
-      <div className="space">
-           <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
-      </div>
+      <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
       <div className="button"> 
         <button className="inviomodulo" onClick={handleSubmit}>Proponi progetto</button> 
       </div>

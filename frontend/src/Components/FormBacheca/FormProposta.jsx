@@ -44,7 +44,6 @@ function FormProposta() {
         value={domanda}
         onChange={(e) => setDomanda(e.target.value)}
       />
-      <div className="space"></div>
       <span htmlFor="formGroupExampleInput" className="form-label">Opzioni</span>
       <ul>
         <li><input 
@@ -62,9 +61,7 @@ function FormProposta() {
           onChange={(e) => setOpzione2(e.target.value)}
         /></li>
       </ul>
-      <div className="space">
         <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
-      </div>
       <div className="button">
         <button className="inviomodulo" onClick={handleSubmit}>Proponi sondaggio</button>
       </div>
