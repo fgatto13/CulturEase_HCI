@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 10px;
+    margin-bottom: 30px;
   }
   
   .pagination-button {
@@ -21,7 +22,7 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px; /* 100% */
+    line-height: 20px; 
     transition: all 0.5s ease-in-out;
   }
   

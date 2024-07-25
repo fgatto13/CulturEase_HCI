@@ -25,6 +25,12 @@
     padding: 20px;
 }
 
+.element-name{
+    font-weight: bold;
+    font-size: x-large;
+    color:rgba(42, 99, 100, 0.75);
+}
+
   
 @media only screen and (max-width: 1000px){
     .gridContainer {

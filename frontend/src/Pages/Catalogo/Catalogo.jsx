@@ -24,7 +24,7 @@ export default function Catalogo() {
         <GridLayout elements={elementsConfig} ItemComponent={ItemDetails} />
         
         {isAdmin && (
-          <Button text="Aggiungi Prodotto" funct={handleAddProduct} />
+          <Button className="add-product-button" text="Aggiungi Prodotto" funct={handleAddProduct} />
         )}
 
         {showAddProductForm && (
