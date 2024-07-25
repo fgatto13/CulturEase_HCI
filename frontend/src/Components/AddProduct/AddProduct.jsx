@@ -6,17 +6,19 @@ import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
 import { PopUpContext } from "../UserPopups/PopUpContext";
 import { validateAddProductForm } from '../utils/validationUtils';
 import elementsConfig from '../../Pages/Catalogo/catalogue.json';
+import { ErrorMessage } from '../UserPopups';
 
 
 const AddProductForm = ({ onClose }) => {
   const { showPopUp, showFinalPopUp, showGreenContent, handleOpenPopUp } = useContext(PopUpContext);
-  const message = "Sei sicuro di voler aggiungere il prodotto?";
+  const messagePopUp = "Sei sicuro di voler aggiungere il prodotto?";
 
   const [productName, setProductName] = useState('');
   const [isUsed, setIsUsed] = useState(false);
   const [note, setNote] = useState('');
   const [size, setSize] = useState('');
   const [error, setError] = useState('');
+  const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   const prevShowFinalPopUpRef = React.useRef(showFinalPopUp);
 
@@ -25,10 +27,16 @@ const AddProductForm = ({ onClose }) => {
     const {isValid, message} = validateAddProductForm(productName, note);
     if (isValid) {
         setError('');
-        handleOpenPopUp(message);
+        setIsErrorVisible(false); 
+        handleOpenPopUp(messagePopUp);
     } else {
         setError(message);
+        setIsErrorVisible(true); 
     }
+  };
+
+  const closeErrorMessage = () => {
+    setIsErrorVisible(false);
   };
 
   useEffect(() => {
@@ -114,7 +122,7 @@ const AddProductForm = ({ onClose }) => {
       </div>
       
       <Button text="Aggiungi Prodotto" funct={(e) => handleSubmit(e)}/>
-      {error && <pre className="error-message">{error}</pre>}
+      <ErrorMessage error={isErrorVisible ? error : ''} closeError={closeErrorMessage} />
       {showPopUp && <CheckPopUps />}
       {showFinalPopUp && <FinalPopUps />}
 
