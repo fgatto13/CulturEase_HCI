@@ -44,8 +44,7 @@ export default function BachecaPage() {
     return (
         <>
             <Header />
-            <main>
-                <div className="areaBacheca">
+            <main className="areaBacheca">
                     <div className="scroll-container">
                         {datiBacheca.proposteProgetto.map((proposta, index) => (
                             <PropostaProgetto
@@ -89,7 +88,6 @@ export default function BachecaPage() {
                         </div>
                     </div>
                     <Sidebar />
-                </div>
 
                 {showPopUp && <CheckPopUps />}
                 {showFinalPopUp && <FinalPopUps />}

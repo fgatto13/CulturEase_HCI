@@ -17,7 +17,6 @@ function Sidebar() {
       </div>
       <div className="sidebar">
           <FormProgetto />
-          <div className="space"></div>
           <FormProposta />   
     </div>
     </div>

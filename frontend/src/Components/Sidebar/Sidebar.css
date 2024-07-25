@@ -50,10 +50,6 @@ span{
 	font-size: 14px;
 }
 
-.space{
-	height: 10px;
-}
-
 .button{
 	text-align: center;
 }
@@ -103,24 +99,21 @@ span{
 		width: 65%;
 	}
 }
+.Form:first-child{margin-bottom: 5px;}
 
 @media only screen and (max-height:800px) and (max-width:400px) {
 	.sideMain{
-		right: -100%;
+		right: -95%;
 		padding-block: 10px;
 	}
-	.sidebar{
-		border-radius: 0;
-		box-shadow: none;
-	}
 	.menuButton.openMenu{
-		right: 90%;
+		right: 85%;
 		transform: rotate(180deg);
 		svg{transform: rotate(0)};
 	}
 	.Form{
 		background-color: #fff;
-		padding: 20px;
+		padding: 10px;
 		border: 1px solid #ccc;
 		border-radius: 25px;
 		input{
