@@ -1,4 +1,5 @@
 .SideMenu {
+    display: none;
     height: 100dvh;
     width: 100vw;
     background-color: #fff;
@@ -7,10 +8,6 @@
     top: 0;
     right: -100vw; /* Changed to -100vw to move it completely out of view */
     transition: all 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     z-index: 8;
 }
 
@@ -109,5 +106,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+    }
+    .SideMenu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }

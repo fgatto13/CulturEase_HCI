@@ -1,6 +1,7 @@
 .catalogueMain{
     background-image: url('CatalogueBG.png');
     padding-block: 20px;
+    max-height: 100dvh;
 }
 
 .add-product-form-container {
