@@ -31,7 +31,9 @@
   },
   {
     "image": "/images/image7.png",
-    "title": "pantalone"
+    "title": "pantalone",
+    "note": "Pantalone bellissimo",
+    "taglia": "XXL"
   },
   {
     "image": "/images/image4.png",

@@ -23,7 +23,7 @@ const ItemDetails = ({ element, onClose, buttonDisplay, itemType }) => {
           <img src={element.image} alt={element.title} />
         </div>
         <div className="info-section">
-          <h1 style={{textAlign: 'left'}}>{element.title}</h1>
+          <h1 style={{textAlign: 'center'}}>{element.title}</h1>
           <p style={{textAlign: 'left'}}>{element.descrizione}</p>
           {itemType===1 &&
           <ul>
