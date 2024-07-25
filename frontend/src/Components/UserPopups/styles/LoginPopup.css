@@ -36,7 +36,7 @@
         width: 90%;
     }
 }
-.login-popup .imgWrapper{
+.imgWrapper{
     width: 100%;
     display: flex;
     justify-content: end;
