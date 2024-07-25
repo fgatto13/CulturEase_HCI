@@ -12,9 +12,9 @@ function Messaggio({image, messaggio, classe}) {
 			<div className="divText">
 				<div className="DIVelimina"><button>Elimina X</button></div>
 				<span>{messaggio}</span>
-				<div className="like">
-					<button>Non mi piace <img className="dontlikeimg" src={likeimg} alt="dontlikeimg" /></button>
-					<button>Mi piace <img className="likeimg" src={likeimg} alt="likeimg" /></button>
+				<div className="right">
+					<button>Non mi piace <img className="dontrightimg" src={likeimg} alt="dontrightimg" /></button>
+					<button>Mi piace <img className="rightimg" src={likeimg} alt="likeimg" /></button>
 				</div>
 			</div>
 		</div>

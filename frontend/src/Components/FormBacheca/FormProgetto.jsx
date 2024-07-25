@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import '../../Pages/Bacheca/Bacheca.css';
-import { validateDescription, validateProperName } from '../utils/validationUtils';
-import { PopUpContext } from '../UserPopups/PopUpContext';
+import { validateNameAndDescription } from '../utils/validationUtils';
+import { PopUpContext } from '../../context/PopUpContext';
 import { ErrorMessage } from '../UserPopups';
 
 function FormProgetto() {
@@ -12,18 +12,16 @@ function FormProgetto() {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   const handleSubmit = () => {
-    const { isValid: isValidName, message: messageName } = validateProperName(nome);
-    const { isValid: isValidDescription, message: messageDescription } = validateDescription(descrizione);
+    const { isValid: isValid, message: message } = validateNameAndDescription(nome, descrizione);
 
-    if (isValidName && isValidDescription) {
+    if (isValid) {
       handleOpenPopUp('Confermi di voler proporre il progetto?');
       setNome('');
       setDescrizione('');
       setError('');
       setIsErrorVisible(false); 
     } else {
-      const errorMessage = [messageName, messageDescription].filter(Boolean).join('\n');
-      setError(errorMessage);
+      setError(message);
       setIsErrorVisible(true); 
     }
   };

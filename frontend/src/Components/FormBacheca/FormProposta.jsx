@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import '../../Pages/Bacheca/Bacheca.css';
-import { validateProperName } from '../utils/validationUtils';
-import { PopUpContext } from '../UserPopups/PopUpContext';
+import { validateThreeNames } from '../utils/validationUtils';
+import { PopUpContext } from '../../context/PopUpContext';
 import { ErrorMessage } from '../UserPopups';
 
 function FormProposta() {
@@ -13,13 +13,9 @@ function FormProposta() {
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
   const handleSubmit = () => {
-    const { isValid: isValidQuestion, message: messageQuestion } = validateProperName(domanda);
-    const { isValid: isValidOption1 } = validateProperName(opzione1);
-    const { isValid: isValidOption2 } = validateProperName(opzione2);
+    const { isValid: isValid, message: message } = validateThreeNames(domanda, opzione1, opzione2);
 
-    if (isValidQuestion && 
-       (isValidOption1 || opzione1 === '') && 
-       (isValidOption2 || opzione2 === '')){
+    if (isValid){
       handleOpenPopUp('Confermi di voler proporre il sondaggio?');
       setDomanda('');
       setOpzione1('');
@@ -27,8 +23,7 @@ function FormProposta() {
       setError('');
       setIsErrorVisible(false);
     } else {
-      const errorMessage = [messageQuestion].filter(Boolean).join('\n');
-      setError(errorMessage);
+      setError(message);
       setIsErrorVisible(true);
     }
   };

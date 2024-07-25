@@ -20,9 +20,9 @@ function PropostaSondaggio({ image, descrizione, opzione1, opzione2, classe }) {
 					<input type="radio" id="option2" name="option" value="2" />
 					<span><b>Opzione1:</b> {opzione2}</span>
 				</div>
-				<div className="like">
-					<button>Non mi piace <img className="dontlikeimg" src={likeimg} alt="dontlikeimg" /></button>
-					<button>Mi piace <img className="likeimg" src={likeimg} alt="likeimg" /></button>
+				<div className="right">
+					<button>Non mi piace <img className="dontrightimg" src={likeimg} alt="dontrightimg" /></button>
+					<button>Mi piace <img className="rightimg" src={likeimg} alt="rightimg" /></button>
 				</div>
 			</div>
 			<div className="divImg">

@@ -3,7 +3,7 @@ import './AddProduct.css';
 import Button from '../InteractiveComponents';
 import CheckPopUps from "../UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
-import { PopUpContext } from "../UserPopups/PopUpContext";
+import { PopUpContext } from '../../context/PopUpContext';
 import { validateAddProductForm } from '../utils/validationUtils';
 import elementsConfig from '../../Pages/Catalogo/catalogue.json';
 import { ErrorMessage } from '../UserPopups';
@@ -17,6 +17,7 @@ const AddProductForm = ({ onClose }) => {
   const [isUsed, setIsUsed] = useState(false);
   const [note, setNote] = useState('');
   const [size, setSize] = useState('');
+  const [image, setImage] = useState('');
   const [error, setError] = useState('');
   const [isErrorVisible, setIsErrorVisible] = useState(false);
 
@@ -24,7 +25,7 @@ const AddProductForm = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const {isValid, message} = validateAddProductForm(productName, note);
+    const {isValid, message} = validateAddProductForm(productName, note, image, size);
     if (isValid) {
         setError('');
         setIsErrorVisible(false); 
@@ -52,6 +53,7 @@ const AddProductForm = ({ onClose }) => {
             setProductName('');
             setIsUsed(false);
             setNote('');
+            setImage('');
             setSize('');
         }
         onClose();
@@ -119,6 +121,16 @@ const AddProductForm = ({ onClose }) => {
           <option value="XXL">XXL</option>
           <option value="XXXL">XXXL</option>
         </select>
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="image">Immagine</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={(e) => setImage(e.target.value)}
+         />
       </div>
       
       <Button text="Aggiungi Prodotto" funct={(e) => handleSubmit(e)}/>

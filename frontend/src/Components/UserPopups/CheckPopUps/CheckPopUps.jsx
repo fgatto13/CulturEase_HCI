@@ -1,6 +1,6 @@
 import React from 'react';
 import './CheckPopUps.css'; 
-import { PopUpContext } from '../PopUpContext';
+import { PopUpContext } from '../../../context/PopUpContext';
 import { useContext } from "react";
 import Button from '../../InteractiveComponents';
 import closeIcon from '../media/close-circle.png';

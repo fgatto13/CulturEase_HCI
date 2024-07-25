@@ -13,7 +13,7 @@ import { ErrorMessage } from "../../Components/UserPopups";
 
 import CheckPopUps from "../../Components/UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../../Components/UserPopups/FinalPopUps/FinalPopUps";
-import { PopUpContext } from "../../Components/UserPopups/PopUpContext";
+import { PopUpContext } from "../../context/PopUpContext";
 
 const immagini = {
     user1: user1,

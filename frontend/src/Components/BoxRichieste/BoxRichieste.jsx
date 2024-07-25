@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import './BoxRichieste.css';
 import Button from '../InteractiveComponents';
-import { validateProperName, validateDescription } from '../utils/validationUtils';
-import { PopUpContext } from '../UserPopups/PopUpContext';
+import { validateProperName, validateDescription, validateNameAndDescription } from '../utils/validationUtils';
+import { PopUpContext } from '../../context/PopUpContext';
 import CheckPopUps from "../UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
 import { ErrorMessage } from '../UserPopups';
@@ -45,20 +45,14 @@ const BoxRichieste = ({ isVisible, onClose }) => {
 
     const handleSubmit = () => {
 
-        const { isValid: isValidName, message: messageName } = validateProperName(formValues.productName);
-        const { isValid: isValidDescription, message: messageDescription } = validateDescription(formValues.description);
+        const { isValid: isValid, message: message} = validateNameAndDescription(formValues.productName, formValues.description);
     
         let errorMessages = [];
     
-        if (!isValidName) {
-            errorMessages.push(messageName);
-        }
-    
-        if (!isValidDescription) {
-            errorMessages.push(messageDescription);
-        }
-    
-        if (formValues.image === null) {
+        if (!isValid) {
+            errorMessages.push(message);
+        }   
+        else if (formValues.image === null) {
             errorMessages.push('Inserire un\'immagine');
         }
     

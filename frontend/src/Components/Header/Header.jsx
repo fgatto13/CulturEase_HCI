@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// Header.js
+import React, { useState, useContext } from 'react';
 import './Header.css';
 import logo1 from '../../Media/Logo.png';
 import logo2 from '../../Media/LogoHeader2.png';
@@ -8,24 +9,15 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from '../Menus';
 import NotifyBox from '../NotifyBox/NotifyBox';
 import { SideMenu } from '../Menus/SideMenu';
+import AuthContext from '../../context/AuthContext';
 
 function Header() {
     const [active, setActive] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
     const [showNotifyBox, setShowNotifyBox] = useState(false);
+    const { isAdmin } = useContext(AuthContext);
 
-    useEffect(() => {
-        const adminStatus = sessionStorage.getItem('isAdmin') === 'true';
-        setIsAdmin(adminStatus);
-    }, []);
-
-    function toggle() {
-        setActive(!active);
-    }
-
-    function toggleNotifyBox() {
-        setShowNotifyBox(!showNotifyBox);
-    }
+    const toggle = () => setActive(!active);
+    const toggleNotifyBox = () => setShowNotifyBox(!showNotifyBox);
 
     return (
         <>
@@ -38,7 +30,6 @@ function Header() {
                     <ul>
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/bacheca"}>Bacheca</Link></li>
-                        {/*eslint-disable-next-line*/}
                         <li><a href='#' onClick={toggle}>Servizi</a></li>
                         {isAdmin &&
                         <li>
@@ -47,8 +38,8 @@ function Header() {
                                     src={Admin} 
                                     alt="notification" 
                                     className='headerImg' 
-                                    onClick={isAdmin ? toggleNotifyBox : null}
-                                    />
+                                    onClick={toggleNotifyBox}
+                                />
                             </Link>
                         </li>
                         }
@@ -58,7 +49,6 @@ function Header() {
                                     src={User} 
                                     alt="userLogin" 
                                     className='headerImg' 
-                                    onClick={isAdmin ? toggleNotifyBox : null}
                                 />
                             </Link>
                         </li>

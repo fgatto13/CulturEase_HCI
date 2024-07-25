@@ -4,7 +4,7 @@ import './ItemDetails.css';
 import Button from '../InteractiveComponents';
 import CheckPopUps from "../UserPopups/CheckPopUps/CheckPopUps";
 import FinalPopUps from "../UserPopups/FinalPopUps/FinalPopUps";
-import { PopUpContext } from "../UserPopups/PopUpContext";
+import { PopUpContext } from "../../context/PopUpContext";
 import closeIcon from '../Media/close-circle.png';
 
 const ItemDetails = ({ element, onClose, buttonDisplay, itemType }) => {

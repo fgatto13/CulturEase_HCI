@@ -129,17 +129,32 @@ button{
 	z-index: 0;
 }
 
-.like {
+.right {
 	width: 100%;
 	text-align: right;
 	font-size: 14px;
 }
 
-.likeimg {
-	width: 15px;
+.rightimg {
+	width: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.dontlikeimg {
-	width: 15px;
+.dontrightimg {
+	width: 12px;
 	transform: rotate(180deg);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.approved{
+    text-align: left;
+}
+
+.bottom-post{
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px; 
 }

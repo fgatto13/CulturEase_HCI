@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/LoginPopup.css";
 import UserIcon from '../media/user.svg';
 import Button from "../../InteractiveComponents";
@@ -7,12 +7,15 @@ import { validateCredentials } from "../../utils/validationUtils";
 import ErrorMessage from "../ErrorMessage";
 import useAuth from '../../../Hooks';
 import { UserDetails } from "../UserDetails";
+import AuthContext from "../../../context/AuthContext";
 
 export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggleForm }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isErrorVisible, setIsErrorVisible] = useState(false);
+    const { updateIsAdmin } = useContext(AuthContext);
+    
 
     const { login, isLoggedIn } = useAuth();
 
@@ -30,12 +33,12 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
         if (isValid) {
             try {
                 const adminEmail = 'admin@example.com';
-                const adminPassword = 'adminPassword1'; 
+                const adminPassword = 'adminPassword1';
 
                 if (email === adminEmail && password === adminPassword) {
-                    sessionStorage.setItem('isAdmin', 'true');
+                    updateIsAdmin(true);
                 } else {
-                    sessionStorage.setItem('isAdmin', 'false');
+                    updateIsAdmin(false);
                 }
 
                 login(email, password);
@@ -57,7 +60,7 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
     };
 
     if (isLoggedIn) {
-        return <UserDetails/>;
+        return <UserDetails />;
     }
 
     return (
@@ -107,7 +110,6 @@ export const LoginPopup = ({ inputType = "email", inputType1 = "password", toggl
 LoginPopup.propTypes = {
     inputType: PropTypes.string,
     inputType1: PropTypes.string,
-    toggleForm: PropTypes.func.isRequired,
 };
 
 export default LoginPopup;

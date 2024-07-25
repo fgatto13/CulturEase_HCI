@@ -1,6 +1,6 @@
 import React from 'react';
 import './FinalPopUps.css'; 
-import { PopUpContext } from '../PopUpContext';
+import { PopUpContext } from '../../../context/PopUpContext';
 import { useContext } from "react";
 import Button from '../../InteractiveComponents';
 
